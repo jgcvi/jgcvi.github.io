@@ -1,1 +1,52 @@
-hello world
+<!DOCTYPE HTML>
+<html>
+<head>
+	<style>
+		body {
+			color: white;
+			background-color: black;
+		}
+
+		.center {
+		  height: 500px;
+		  position: relative;
+		}
+
+		.center div {
+		  margin: 0;
+		  position: absolute;
+		  top: 50%;
+		  left: 50%;
+		  -ms-transform: translate(-50%, -50%);
+		  transform: translate(-50%, -50%);
+		}
+
+		div h2 {
+			position: relative;
+			margin-left: auto;
+			margin-right: auto;
+		}
+	</style>
+	<script>
+		var countdownDate = new Date("July 26 2019 12:00:00").getTime();
+		var x = setInterval(() => {
+			var now = new Date().getTime();
+			var distance = countdownDate - now;
+			var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+			var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+			var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+			var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+			
+			document.getElementById("counter").innerHTML = days + " days " + hours + " hours "
+  + minutes + " mins " + seconds + " secs"; 
+		}, 1000);
+	</script>
+</head>
+<body>
+	<div class="center">
+		<div>
+			<h1 id="counter"></h1>
+			<h2>Until tomorrow :D</h2>
+		</div>
+	</div>
+</body>
